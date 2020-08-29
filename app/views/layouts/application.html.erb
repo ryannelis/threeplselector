@@ -14,7 +14,25 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
   </head>
-
+   <nav>
+      <ul>
+          <li>
+            <a href="/user_sign_in">Sign In</a>
+          </li>
+          <li>
+            <a href="/user_sign_up">Sign Up</a>
+          </li>
+        <li>
+          <a href="/threepls">3PL</a>
+        </li>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <%= @current_user.email %>
+        </li>
+      </ul>
+    </nav>
   <body>
     <%= yield %>
   </body>

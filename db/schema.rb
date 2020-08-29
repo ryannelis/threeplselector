@@ -10,6 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_08_29_214351) do
+
+  create_table "products", force: :cascade do |t|
+    t.float "length"
+    t.float "width"
+    t.float "height"
+    t.float "weight"
+    t.string "name"
+    t.integer "user_id"
+    t.integer "units_shipped_per_month"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "threepl_recs", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "three_pl_id"
+    t.boolean "selected"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "threepls", force: :cascade do |t|
+    t.float "storage_fees"
+    t.float "pick_and_pack_fees"
+    t.integer "number_of_products_can_handle"
+    t.float "monthly_volume"
+    t.boolean "api__edi_integration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end

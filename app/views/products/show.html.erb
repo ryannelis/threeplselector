@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Product #<%= @the_product.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/products">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_product/<%= @the_product.id %>">
+          Delete product
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Length
+      </dt>
+      <dd>
+        <%= @the_product.length %>
+      </dd>
+
+      <dt>
+        Width
+      </dt>
+      <dd>
+        <%= @the_product.width %>
+      </dd>
+
+      <dt>
+        Height
+      </dt>
+      <dd>
+        <%= @the_product.height %>
+      </dd>
+
+      <dt>
+        Weight
+      </dt>
+      <dd>
+        <%= @the_product.weight %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_product.name %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_product.user_id %>
+      </dd>
+
+      <dt>
+        Units shipped per month
+      </dt>
+      <dd>
+        <%= @the_product.units_shipped_per_month %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_product.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_product.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit product
+    </h2>
+
+    <form action="/modify_product/<%= @the_product.id %>"  method="post" >
+      <div>
+        <label for="length_box">
+          Length
+        </label>
+
+        <input type="text" id="length_box" name="query_length" value="<%= @the_product.length %>">
+      </div>
+
+      <div>
+        <label for="width_box">
+          Width
+        </label>
+
+        <input type="text" id="width_box" name="query_width" value="<%= @the_product.width %>">
+      </div>
+
+      <div>
+        <label for="height_box">
+          Height
+        </label>
+
+        <input type="text" id="height_box" name="query_height" value="<%= @the_product.height %>">
+      </div>
+
+      <div>
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight" value="<%= @the_product.weight %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_product.name %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_product.user_id %>">
+      </div>
+
+      <div>
+        <label for="units_shipped_per_month_box">
+          Units shipped per month
+        </label>
+
+        <input type="text" id="units_shipped_per_month_box" name="query_units_shipped_per_month" value="<%= @the_product.units_shipped_per_month %>">
+      </div>
+
+      <button>
+        Update product
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

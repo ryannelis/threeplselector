@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Threepl rec #<%= @the_threepl_rec.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/threepl_recs">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_threepl_rec/<%= @the_threepl_rec.id %>">
+          Delete threepl rec
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Product
+      </dt>
+      <dd>
+        <%= @the_threepl_rec.product_id %>
+      </dd>
+
+      <dt>
+        Three pl
+      </dt>
+      <dd>
+        <%= @the_threepl_rec.three_pl_id %>
+      </dd>
+
+      <dt>
+        Selected
+      </dt>
+      <dd>
+        <%= @the_threepl_rec.selected %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_threepl_rec.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_threepl_rec.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit threepl rec
+    </h2>
+
+    <form action="/modify_threepl_rec/<%= @the_threepl_rec.id %>"  method="post" >
+      <div>
+        <label for="product_id_box">
+          Product
+        </label>
+
+        <input type="text" id="product_id_box" name="query_product_id" value="<%= @the_threepl_rec.product_id %>">
+      </div>
+
+      <div>
+        <label for="three_pl_id_box">
+          Three pl
+        </label>
+
+        <input type="text" id="three_pl_id_box" name="query_three_pl_id" value="<%= @the_threepl_rec.three_pl_id %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="selected_box" name="query_selected" value="1" <%= "checked" if @the_threepl_rec.selected %>>
+
+        <label for="selected_box">
+            Selected
+        </label>
+      </div>
+
+      <button>
+        Update threepl rec
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

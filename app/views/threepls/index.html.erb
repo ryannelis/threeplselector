@@ -1,0 +1,148 @@
+<div>
+  <div>
+    <h1>
+      List of all threepls
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new threepl
+    </h2>
+
+    <form action="/insert_threepl" method="post">
+      <div>
+        <label for="storage_fees_box">
+          Storage fees
+        </label>
+
+        <input type="text" id="storage_fees_box" name="query_storage_fees">
+      </div>
+
+      <div>
+        <label for="pick_and_pack_fees_box">
+          Pick and pack fees
+        </label>
+
+        <input type="text" id="pick_and_pack_fees_box" name="query_pick_and_pack_fees">
+      </div>
+
+      <div>
+        <label for="number_of_products_can_handle_box">
+          Number of products can handle
+        </label>
+
+        <input type="text" id="number_of_products_can_handle_box" name="query_number_of_products_can_handle">
+      </div>
+
+      <div>
+        <label for="monthly_volume_box">
+          Monthly volume
+        </label>
+
+        <input type="text" id="monthly_volume_box" name="query_monthly_volume">
+      </div>
+
+      <div>
+        <input type="checkbox" id="api__edi_integration_box" name="query_api__edi_integration" value="1">
+
+        <label for="api__edi_integration_box">Api  edi integration</label>
+      </div>
+
+      <button>
+        Create threepl
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Storage fees
+        </th>
+
+        <th>
+          Pick and pack fees
+        </th>
+
+        <th>
+          Number of products can handle
+        </th>
+
+        <th>
+          Monthly volume
+        </th>
+
+        <th>
+          Api  edi integration
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_threepls.each do |a_threepl| %>
+      <tr>
+        <td>
+          <%= a_threepl.id %>
+        </td>
+
+        <td>
+          <%= a_threepl.storage_fees %>
+        </td>
+
+        <td>
+          <%= a_threepl.pick_and_pack_fees %>
+        </td>
+
+        <td>
+          <%= a_threepl.number_of_products_can_handle %>
+        </td>
+
+        <td>
+          <%= a_threepl.monthly_volume %>
+        </td>
+
+        <td>
+          <%= a_threepl.api__edi_integration %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_threepl.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_threepl.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/threepls/<%= a_threepl.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

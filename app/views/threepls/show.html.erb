@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Threepl #<%= @the_threepl.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/threepls">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_threepl/<%= @the_threepl.id %>">
+          Delete threepl
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Storage fees
+      </dt>
+      <dd>
+        <%= @the_threepl.storage_fees %>
+      </dd>
+
+      <dt>
+        Pick and pack fees
+      </dt>
+      <dd>
+        <%= @the_threepl.pick_and_pack_fees %>
+      </dd>
+
+      <dt>
+        Number of products can handle
+      </dt>
+      <dd>
+        <%= @the_threepl.number_of_products_can_handle %>
+      </dd>
+
+      <dt>
+        Monthly volume
+      </dt>
+      <dd>
+        <%= @the_threepl.monthly_volume %>
+      </dd>
+
+      <dt>
+        Api  edi integration
+      </dt>
+      <dd>
+        <%= @the_threepl.api__edi_integration %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_threepl.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_threepl.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit threepl
+    </h2>
+
+    <form action="/modify_threepl/<%= @the_threepl.id %>"  method="post" >
+      <div>
+        <label for="storage_fees_box">
+          Storage fees
+        </label>
+
+        <input type="text" id="storage_fees_box" name="query_storage_fees" value="<%= @the_threepl.storage_fees %>">
+      </div>
+
+      <div>
+        <label for="pick_and_pack_fees_box">
+          Pick and pack fees
+        </label>
+
+        <input type="text" id="pick_and_pack_fees_box" name="query_pick_and_pack_fees" value="<%= @the_threepl.pick_and_pack_fees %>">
+      </div>
+
+      <div>
+        <label for="number_of_products_can_handle_box">
+          Number of products can handle
+        </label>
+
+        <input type="text" id="number_of_products_can_handle_box" name="query_number_of_products_can_handle" value="<%= @the_threepl.number_of_products_can_handle %>">
+      </div>
+
+      <div>
+        <label for="monthly_volume_box">
+          Monthly volume
+        </label>
+
+        <input type="text" id="monthly_volume_box" name="query_monthly_volume" value="<%= @the_threepl.monthly_volume %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="api__edi_integration_box" name="query_api__edi_integration" value="1" <%= "checked" if @the_threepl.api__edi_integration %>>
+
+        <label for="api__edi_integration_box">
+            Api  edi integration
+        </label>
+      </div>
+
+      <button>
+        Update threepl
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
